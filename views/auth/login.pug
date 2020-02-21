@@ -1,0 +1,21 @@
+extends ../layouts/userlayout.pug
+
+block content
+    .row
+        .col-md-3.offset-md-4
+                h1.text-center Login
+
+                if errors
+                    .alert.alert-danger
+                        each erorr in errors
+                            div=erorr
+
+                form(action="/auth/login" method="POST")
+                    .form-group
+                        label(for="email") Email:
+                        input#email.form-control(name="email", type="text", placeholder="Enter email", value = values ? values.email: "")
+                    .form-group
+                        label(for="password") password:
+                        input#password.form-control(name="password", type='password', placeholder='Enter password')
+
+                    button.btn.btn-primary Login

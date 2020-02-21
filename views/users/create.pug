@@ -1,0 +1,29 @@
+extends ../layouts/userlayout.pug
+
+block content
+    .row
+        .col-md-3.offset-md-4
+                h1.text-center Create User
+
+                if errors
+                    .alert.alert-danger
+                        each erorr in errors
+                            div=erorr
+
+                form(action="/users/store" method="POST")
+                    .form-group
+                        label(for="name") Name:
+                        input#name.form-control(name="name", type="text", placeholder="Enter Name", value = values ? values.name :"")
+
+                    .form-group
+                        label(for="phone") Phone:
+                        input#phone.form-control(name="phone", type='text', placeholder='Enter phone', value = values ? values.phone :"")
+                    .form-group
+                    label(for="email") Email:
+                    input#email.form-control(name="email", type="text", placeholder="Enter email", value = values ? values.email :"")
+
+                    .form-group
+                        label(for="password") Password:
+                        input#password.form-control(name="password", type='password', placeholder='Enter password', value = values ? values.password :"")
+
+                    button.btn.btn-primary Create

@@ -1,0 +1,13 @@
+extends ../layouts/userlayout.pug
+
+block content
+    .row
+        .col-md-12.text-center.h2 Create User
+    .row.text-center
+        each product in products
+            .col-md-3
+                div.mr-5.ml-5.border
+                    img(src='https://loremflickr.com/320/240', alt='Smiley face', height='200', width='200')
+                    .div.font-weight-bold.text-left=product.name
+                    .div.text-left=product.description
+                    button.btn.btn-primary Detail   
